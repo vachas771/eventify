@@ -3,6 +3,8 @@ import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+with app.app_context():
+    init_db()
 app.secret_key = "secret123"
 
 
@@ -201,4 +203,5 @@ def admin_bookings():
 
 # ------------------ MAIN ------------------
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000)
